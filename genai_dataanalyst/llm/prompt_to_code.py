@@ -84,3 +84,48 @@ Instruction: {user_prompt}
         print("[ERROR] Groq SDK (transform) failed:", e)
         return "# Error: Groq SDK failed to generate transformation code"
 
+
+def visualize_prompt_to_code(user_prompt: str, column_list: list) -> str:
+    system_prompt = f"""
+You are a highly skilled Python data analyst assistant.
+
+The user will give you a natural language instruction for data visualization or exploratory data analysis (EDA).
+
+You must convert that instruction into executable Python code using only the Plotly Graph Objects (go) library.
+
+The following must always be true:
+The input DataFrame is named `df`
+The output variable must be a Plotly figure named `fig`
+Use `go.Figure()` to build the plot
+Return only valid Python code — no explanation, no markdown, no comments
+The figure should include titles, axis labels, and relevant layout formatting
+
+Support the following types of visualizations as per user request:
+Bar chart, Line chart, Pie chart
+Histogram, Box plot, Scatter plot
+Time-series trends
+Correlation heatmaps
+Comparative category distributions
+Outlier spotting (via boxplots or scatter)
+
+DataFrame columns: {column_list}
+
+Instruction: {user_prompt}
+"""
+
+    try:
+        response = client.chat.completions.create(
+            model="llama3-70b-8192",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.4,
+            max_tokens=400
+        )
+        return response.choices[0].message.content.strip()
+
+    except Exception as e:
+        print("[ERROR] visualize_prompt_to_code failed:", e)
+        return "# Could not generate code"
+

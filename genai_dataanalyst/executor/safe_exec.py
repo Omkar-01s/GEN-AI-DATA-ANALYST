@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import re
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
+import seaborn as sns
 
 def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
     """
@@ -16,7 +17,8 @@ def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
         "re": re,
         "LabelEncoder": LabelEncoder,
         "MinMaxScaler": MinMaxScaler,
-        "StandardScaler": StandardScaler
+        "StandardScaler": StandardScaler,
+        "sns": sns
     }
 
     try:
