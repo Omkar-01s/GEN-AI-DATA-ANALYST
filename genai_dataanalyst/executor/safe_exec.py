@@ -1,15 +1,21 @@
 # executor/safe_exec.py
 
 import pandas as pd
-import numpy as np  # ✅ Added NumPy
+import numpy as np
+import re
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 
 def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
     """
-    Safely execute the LLM-generated pandas or NumPy code on the input DataFrame.
+    Safely execute the LLM-generated pandas / NumPy / sklearn transformation code on the DataFrame.
     """
     local_vars = {
         "df": df.copy(),
-        "np": np  # ✅ Allow NumPy access in local scope
+        "np": np,
+        "re": re,
+        "LabelEncoder": LabelEncoder,
+        "MinMaxScaler": MinMaxScaler,
+        "StandardScaler": StandardScaler
     }
 
     try:
@@ -21,4 +27,3 @@ def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
         print("[ERROR] Code execution failed:", e)
         print("[DEBUG] Failed code was:\n", code)
         return df.copy()
-# If execution fails, return a copy of the original DataFrame
