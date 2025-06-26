@@ -12,6 +12,7 @@ def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
     local_vars = {
         "df": df.copy(),
         "np": np,
+        "pd": pd,
         "re": re,
         "LabelEncoder": LabelEncoder,
         "MinMaxScaler": MinMaxScaler,

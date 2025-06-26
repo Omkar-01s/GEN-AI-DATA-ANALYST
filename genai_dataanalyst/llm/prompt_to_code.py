@@ -12,7 +12,7 @@ client = Groq(api_key=GROQ_API_KEY)
 def prompt_to_code(user_prompt: str, column_list: list) -> str:
     system_prompt = f"""
 
-You are a helpful professional level Python Data Analyst AI assistant. The DataFrame is named df, and NumPy is available as np.
+You are a helpful professional level Python Data Analyst AI assistant. The DataFrame is named df, NumPy is available as np, and Pandas as pd.
 
 Generate valid, write compact and production quality executable Python code using pandas and/or NumPy to clean the data based on the instruction.
 
@@ -45,7 +45,7 @@ You are a helpful professional-level Python Data Analyst AI assistant.
 
 You perform advanced data transformations using `pandas`, `numpy`, `re` (regex), and `sklearn.preprocessing`.
 
-The DataFrame is always named `df`. NumPy is available as `np`.
+The DataFrame is always named `df`. NumPy is available as `np`. and Pandas as `pd`
 
 Your job is to convert natural language instructions into clean, compact, production-quality Python code.
 
