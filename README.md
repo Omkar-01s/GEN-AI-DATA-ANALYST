@@ -49,4 +49,51 @@ InsightsGen is a **GenAI powered Data Analyst Assistant** that transforms how an
 ---
 
 ## 📂 Project Structure
+GEN-AI-DATA-ANALYST/
+├ ── genai_dataanalyst/
+│ ├ ── assistant.py # Main Assistant class
+│ ├ ── llm/
+│ │ ├ ── prompt_to_code.py # LLM prompt-to-code logic (clean, transform, visualize)
+│ ├ ── executor/
+│ │ ├ ── safe_exec.py # Executes code securely
+├ ── examples/
+│ ├ ── demo.ipynb # Usage examples and tests
+├ ── requirements.txt # Project dependencies
+├ ── .env # Groq API key
 
+
+---
+
+## 🧪 Example Usage
+
+```python
+from genai_dataanalyst.assistant import AnalystAssistant
+import pandas as pd
+
+df = pd.read_csv("sales.csv")
+assistant = AnalystAssistant()
+
+# Clean
+df = assistant.clean(df, prompt="Replace 'M' with 'Men' and 'W' with 'Women' in Gender column.")
+
+# Transform
+df = assistant.transform(df, prompt="Create 'Age_Group' column based on 'Age' ranges.If below 18 child, between 18 to 50 as Adult and Above 50 to 100 as senior")
+
+# Visualize
+assistant.visualize(df, prompt="Show bar chart of total sales per region.", name="Sales by Region")
+
+# Build Dashboard
+assistant.kpi(layout_prompt="Place the sales bar chart in top-left.")
+```
+
+💡 Real-World Impact
+|Problem Solved | How InsightsGen Helps           |
+|---------------|---------------------------------|
+| Manual coding for cleaning & EDA | Auto-generates pandas code from plain logic natural language |
+| Slower turnaround on data tasks	 | Reduces task time by up to 70% |
+| No centralized charting for KPIs | Reuses charts and assembles them dynamically |
+| High chance of syntax / import errors| Uses safe_exec() and fine-tuned prompts |
+
+
+
+	
