@@ -1,6 +1,6 @@
 # 📊 InsightsGen: Automating Data Analyst Workflow with Generative AI
 
-InsightsGen is a production-ready **GenAI-powered Data Analyst Assistant** that transforms how analysts interact with data. By converting **natural language instructions** into **executable Python (pandas, NumPy) code**, this system automates core data tasks like cleaning, transformation, visualization, and KPI dashboard creation.
+InsightsGen is a **GenAI powered Data Analyst Assistant** that transforms how analysts interact with data. By converting **natural language instructions** into **executable Python (pandas, NumPy) code**, this system automates core data tasks like cleaning, transformation, visualization, and KPI dashboard creation.
 
 ---
 
@@ -41,7 +41,7 @@ InsightsGen is a production-ready **GenAI-powered Data Analyst Assistant** that 
 | Component     | Stack                          |
 |---------------|---------------------------------|
 | LLM Backend   | LLaMA 3 (via Groq API)         |
-| Frameworks    | Python, Streamlit              |
+| Frameworks    | Python, groq, langchain
 | Visualization | Plotly                         |
 | Execution     | `exec()` sandbox with restricted scope |
 | IDE           | VS Code, Jupyter Notebook      |
