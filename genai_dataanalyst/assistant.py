@@ -19,11 +19,11 @@ class AnalystAssistant:
 
     def clean(self, df: pd.DataFrame, prompt: str) -> pd.DataFrame:
         """
-        Clean the DataFrame based on a natural language instruction using pandas/NumPy only.
+        Clean the DataFrame based on a natural language instruction using pandas,NumPy, datetime etc.
         """
         print(f"[INFO] [CLEAN] Prompt: {prompt}")
         generated_code = prompt_to_code(prompt, df.columns.tolist())
-        print("[DEBUG] [CLEAN] Generated Code:\n", generated_code)
+        print("[DEBUG] [CLEAN] Generated Code:\n",generated_code)
         return safe_exec(df.copy(), generated_code)
 
     def transform(self, df: pd.DataFrame, prompt: str) -> pd.DataFrame:

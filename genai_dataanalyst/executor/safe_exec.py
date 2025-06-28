@@ -1,10 +1,10 @@
 # executor/safe_exec.py
-
 import pandas as pd
 import numpy as np
 import re
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 import seaborn as sns
+from datetime import datetime
 
 def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
     """
@@ -18,7 +18,8 @@ def safe_exec(df: pd.DataFrame, code: str) -> pd.DataFrame:
         "LabelEncoder": LabelEncoder,
         "MinMaxScaler": MinMaxScaler,
         "StandardScaler": StandardScaler,
-        "sns": sns
+        "sns": sns,
+        "datetime": datetime
     }
 
     try:
