@@ -1,5 +1,13 @@
 # 📊 InsightsGen: Automating Data Analyst Workflow with Generative AI
 
+[![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-VSCode%20%7C%20Jupyter-lightgrey)](https://code.visualstudio.com/)
+[![LLM](https://img.shields.io/badge/LLM-LLaMA%203%20%7C%20Groq-blueviolet)](https://groq.com)
+[![Status](https://img.shields.io/badge/Project-Production%20Ready-brightgreen)]()
+
+---
+
 InsightsGen is a **GenAI powered Data Analyst Assistant** that transforms how analysts interact with data. By converting **natural language instructions** into **executable Python (pandas, NumPy) code**, this system automates core data tasks like cleaning, transformation, visualization, and KPI dashboard creation.
 
 ---
@@ -85,6 +93,7 @@ assistant.visualize(df, prompt="Show bar chart of total sales per region.", name
 # Build Dashboard
 assistant.kpi(layout_prompt="Place the sales bar chart in top-left.")
 ```
+---
 
 💡 Real-World Impact
 |Problem Solved | How InsightsGen Helps           |
@@ -94,6 +103,10 @@ assistant.kpi(layout_prompt="Place the sales bar chart in top-left.")
 | No centralized charting for KPIs | Reuses charts and assembles them dynamically |
 | High chance of syntax / import errors| Uses safe_exec() and fine-tuned prompts |
 
-
+---
+✨ Author
+Omkar Shetgaonkar
+🔗 LinkedIn: www.linkedin.com/in/omkar-shetgaonkar
+📫 shetgaonkaromkar@gmail.com
 
 	
