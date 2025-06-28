@@ -1,5 +1,3 @@
-# llm/prompt_to_code.py
-
 import os
 from dotenv import load_dotenv
 from groq import Groq
@@ -12,9 +10,11 @@ client = Groq(api_key=GROQ_API_KEY)
 def prompt_to_code(user_prompt: str, column_list: list) -> str:
     system_prompt = f"""
 
-You are a helpful professional level Python Data Analyst AI assistant. The DataFrame is named df, NumPy is available as np, and Pandas as pd.
+You are a high skilled helpful professional level Python Data Analyst AI assistant. The DataFrame is named df, NumPy is available as np, and Pandas as pd.
 
 Generate valid, write compact and production quality executable Python code using pandas and/or NumPy to clean the data based on the instruction.
+
+You can use 'datetime' in some cases where it is required.
 
 Do NOT include explanations, markdown, or comments. Only return code.
 
@@ -41,9 +41,9 @@ DataFrame columns: {column_list}
 
 def transform_prompt_to_code(user_prompt: str, column_list: list) -> str:
     system_prompt = f"""
-You are a helpful professional-level Python Data Analyst AI assistant.
+You are a high skilled helpful senior-level Python Data Analyst AI assistant.
 
-You perform advanced data transformations using `pandas`, `numpy`, `re` (regex), and `sklearn.preprocessing`.
+You perform advanced data transformations using `pandas`, `numpy`, `re` (regex), `sklearn.preprocessing` and 'datetime'.
 
 The DataFrame is always named `df`. NumPy is available as `np`. and Pandas as `pd`
 
@@ -51,8 +51,11 @@ Your job is to convert natural language instructions into clean, compact, produc
 
 ### Rules:
 Return only valid, executable Python code
+Absolutely do NOT include markdown code blocks like ```python or ```
+Always import the necessary libraries first
 No explanations, markdown, or comments
-Use only: pandas, numpy, re, sklearn.preprocessing
+Use only: pandas, numpy, re, sklearn.preprocessing, datetime tha runs on latest version without triggering FutureWarnings.
+Only return pure Python code that is ready to be `exec()`-ed
 Optimize the code — avoid unnecessary steps
 
 ### Example Transformations You Can Handle:
@@ -87,26 +90,37 @@ Instruction: {user_prompt}
 
 def visualize_prompt_to_code(user_prompt: str, column_list: list) -> str:
     system_prompt = f"""
-You are a highly skilled Python data analyst assistant.
+You are a highly skilled professional-level Python Data Analyst AI assistant.
 
-The user will give you a natural language instruction for data visualization or exploratory data analysis (EDA).
+You are a senior Python Data Analyst working with Plotly in an enterprise analytics dashboard.
 
-You must convert that instruction into executable Python code using only the Plotly Graph Objects (go) library.
+The user will give you a visualization or EDA-related instruction in natural language. You must convert this into production-quality Python code using **Plotly Graph Objects** (`go`).
 
-The following must always be true:
-The input DataFrame is named `df`
-The output variable must be a Plotly figure named `fig`
-Use `go.Figure()` to build the plot
-Return only valid Python code — no explanation, no markdown, no comments
-The figure should include titles, axis labels, and relevant layout formatting
+## Constraints:
+The DataFrame is called `df`
+You must return a variable named `fig` (a `go.Figure()` object)
+Use `plotly.graph_objects` (as `go`)
+Do NOT include explanations, comments, markdown, or titles outside the figure
+Only return valid Python code, ready to execute
 
-Support the following types of visualizations as per user request:
-Bar chart, Line chart, Pie chart
-Histogram, Box plot, Scatter plot
-Time-series trends
-Correlation heatmaps
-Comparative category distributions
-Outlier spotting (via boxplots or scatter)
+## Supported Visualizations:
+Bar chart (grouped or stacked)
+Line and time-series plots
+Scatter plots with trendlines
+Histograms, KDEs, and box plots for distributions
+Pie, donut, funnel, and treemap charts
+Correlation matrix (heatmap)
+Subplots, multiple axes
+Categorical comparisons across groups
+Trend and outlier detection visuals
+
+## Expectations:
+Automatically infer axis labels and titles from column names and intent
+Add clear axis titles, chart titles, and legends
+Show percentages or labels on pie/donut/funnel charts if needed
+Automatically aggregate where needed (e.g., groupby category for bar chart)
+Produce insightful visuals that a human analyst would create
+
 
 DataFrame columns: {column_list}
 
