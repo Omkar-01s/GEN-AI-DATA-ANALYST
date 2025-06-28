@@ -4,7 +4,6 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-VSCode%20%7C%20Jupyter-lightgrey)](https://code.visualstudio.com/)
 [![LLM](https://img.shields.io/badge/LLM-LLaMA%203%20%7C%20Groq-blueviolet)](https://groq.com)
-[![Status](https://img.shields.io/badge/Project-Production%20Ready-brightgreen)]()
 
 ---
 
