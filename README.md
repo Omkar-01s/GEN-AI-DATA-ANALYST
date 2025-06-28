@@ -57,16 +57,16 @@ InsightsGen is a **GenAI powered Data Analyst Assistant** that transforms how an
 
 ## 📂 Project Structure
 GEN-AI-DATA-ANALYST/
-├ ── genai_dataanalyst/         |
-│ ├── assistant.py # Main Assistant class|
-│ ├── llm/|
-│ │ ├── prompt_to_code.py # LLM prompt-to-code logic (clean, transform, visualize)|
-│ ├── executor/|
-│ │ ├── safe_exec.py # Executes code securely|
-├── examples/|
-│ ├── demo.ipynb # Usage examples and tests|
-├── requirements.txt # Project dependencies|
-├── .env # Groq API key|
+- ├── genai_dataanalyst/        
+- │ ├── assistant.py # Main Assistant class
+- │ ├── llm/
+- │ │ ├── prompt_to_code.py # LLM prompt-to-code logic (clean, transform, visualize)
+- │ ├── executor/
+- │ │ ├── safe_exec.py # Executes code securely
+- ├── examples/
+- │ ├── demo.ipynb # Usage examples and tests
+- ├── requirements.txt # Project dependencies
+- ├── .env # Groq API key
 
 
 ---
