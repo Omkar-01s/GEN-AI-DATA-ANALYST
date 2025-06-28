@@ -109,6 +109,6 @@ Omkar Shetgaonkar
 #### 📫 shetgaonkaromkar@gmail.com
 
 📌 Coming Soon
-####✅ MySQL version: GEneration of SQL querries + Power BI pipeline.
+#### ✅ MySQL version: GEneration of SQL querries + Power BI pipeline.
 
 	
