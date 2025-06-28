@@ -105,10 +105,10 @@ assistant.kpi(layout_prompt="Place the sales bar chart in top-left.")
 ---
 ✨ Author
 Omkar Shetgaonkar
-- 🔗 LinkedIn: www.linkedin.com/in/omkar-shetgaonkar
-- 📫 shetgaonkaromkar@gmail.com
+#### 🔗 LinkedIn: www.linkedin.com/in/omkar-shetgaonkar
+#### 📫 shetgaonkaromkar@gmail.com
 
 📌 Coming Soon
-✅ MySQL version: GEneration of SQL querries + Power BI pipeline.
+####✅ MySQL version: GEneration of SQL querries + Power BI pipeline.
 
 	
